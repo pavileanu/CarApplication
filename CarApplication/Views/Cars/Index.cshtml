@@ -1,0 +1,69 @@
+﻿@model IEnumerable<CarApplication.Models.Car>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.make_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.model_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.registration_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.body_color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.engine_capacity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.doors_number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.image_url)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.make_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.model_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.registration_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.body_color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.engine_capacity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.doors_number)
+        </td>
+        <td>
+            <img src="~/Images/@item.image_url" width="100" height="100" alt="" />
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
